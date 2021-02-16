@@ -3,12 +3,12 @@ import os
 import socket
 import sys
 
-from common.utils import get_message, send_message, load_settings
+from messager.common.utils import get_message, send_message, load_settings
 
 CONFIGS = dict()
 
 
-def handle_message(message):
+def handle_message(message, CONFIGS):
     if CONFIGS.get('ACTION') in message \
             and message[CONFIGS.get('ACTION')] == CONFIGS.get('PRESENCE') \
             and CONFIGS.get('TIME') in message \
@@ -17,7 +17,7 @@ def handle_message(message):
         return {CONFIGS.get('RESPONSE'): 200}
     return {
         CONFIGS.get('RESPONSE'): 400,
-        CONFIGS.get('ERROR'): 'Bad request'
+        CONFIGS.get('ERROR'): 'Bad Request'
 
     }
 

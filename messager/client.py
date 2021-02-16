@@ -3,12 +3,12 @@ import time
 import socket
 import sys
 
-from common.utils import get_message, send_message, load_settings
+from messager.common.utils import get_message, send_message, load_settings
 
 CONFIGS = dict()
 
 
-def create_presence_message(account_name):
+def create_presence_message(account_name, CONFIGS):
     message = {
         CONFIGS.get('ACTION'): CONFIGS.get('PRESENCE'),
         CONFIGS.get('TIME'): time.time(),
@@ -19,11 +19,11 @@ def create_presence_message(account_name):
     return message
 
 
-def handle_response(message):
+def handle_response(message, CONFIGS):
     if CONFIGS.get('RESPONSE') in message:
         if message[CONFIGS.get('RESPONSE')] == 200:
-            return '200 : OK'
-        return f'400 : {message[CONFIGS.get("ERROR")]}'
+            return '200: OK'
+        return f'400: {message[CONFIGS.get("ERROR")]}'
     raise ValueError
 
 
@@ -46,6 +46,7 @@ def main():
     transport.connect((server_address, server_port))
     presence_message = create_presence_message('Guest')
     send_message(transport, presence_message, CONFIGS)
+
     try:
         response = get_message(transport, CONFIGS)
         handled_response = handle_response(response)

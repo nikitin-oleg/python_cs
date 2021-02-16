@@ -21,6 +21,8 @@ def send_message(opened_socket, message, CONFIGS):
 
 
 def load_settings(is_server=True):
+    base_dir = os.path.dirname(os.path.realpath(__file__))
+    path = os.path.join(base_dir, 'settings.json')
     config_keys = [
         "DEFAULT_PORT",
         "MAX_CONNECTIONS",
@@ -36,10 +38,10 @@ def load_settings(is_server=True):
     ]
     if not is_server:
         config_keys.append('DEFAULT_IP_ADDRESS')
-    if not os.path.exists('./common/settings.json'):
+    if not os.path.exists(path):
         print('Файл конфигурации не найден')
         sys.exit(1)
-    with open('./common/settings.json') as config_file:
+    with open(path) as config_file:
         CONFIGS = json.load(config_file)
     loaded_configs_keys = list(CONFIGS.keys())
     for key in config_keys:
