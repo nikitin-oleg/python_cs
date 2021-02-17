@@ -1,0 +1,16 @@
+2021-02-17 13:26:34,656 CRITICAL server_log_config.py Критическая ошибка
+2021-02-17 13:26:34,656 ERROR server_log_config.py Ошибка
+2021-02-17 13:26:34,656 DEBUG server_log_config.py Отладочная информация
+2021-02-17 13:26:34,656 INFO server_log_config.py Информационное сообщение
+2021-02-17 13:29:19,856 CRITICAL server_log_config.py Критическая ошибка
+2021-02-17 13:29:19,856 ERROR server_log_config.py Ошибка
+2021-02-17 13:29:19,856 DEBUG server_log_config.py Отладочная информация
+2021-02-17 13:29:19,856 INFO server_log_config.py Информационное сообщение
+2021-02-17 13:31:49,032 INFO server.py сервер запущен на порту: 7777, по адресу: .
+2021-02-17 13:31:56,220 DEBUG server.py Обработка сообщения от клиента: {'action': 'presence', 'time': 1613550716.2204437, 'user': {'account_name': 'Guest'}}
+2021-02-17 13:32:31,734 DEBUG server.py Обработка сообщения от клиента: {'action': 'presence', 'time': 1613550751.734417, 'user': {'account_name': 'Guest'}}
+2021-02-17 13:32:34,455 DEBUG server.py Обработка сообщения от клиента: {'action': 'presence', 'time': 1613550754.4550753, 'user': {'account_name': 'Guest'}}
+2021-02-17 13:34:22,083 DEBUG server.py Обработка сообщения от клиента: {'action': 'presence', 'time': 1613550862.083638, 'user': {'account_name': 'Guest'}}
+2021-02-17 13:34:27,567 DEBUG server.py Обработка сообщения от клиента: {'action': 'presence', 'time': 1613550867.5671706, 'user': {'account_name': 'Guest'}}
+2021-02-17 13:57:12,436 DEBUG server.py Обработка сообщения от клиента: {'action': 'presence', 'time': 1613552232.4359763, 'user': {'account_name': 'Guest'}}
+2021-02-17 13:57:22,092 DEBUG server.py Обработка сообщения от клиента: {'action': 'presence', 'time': 1613552242.0922852, 'user': {'account_name': 'Guest'}}
