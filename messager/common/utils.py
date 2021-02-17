@@ -1,6 +1,10 @@
 import json
 import os
 import sys
+import logging
+
+CLIENT_LOGGER = logging.getLogger('client')
+SERVER_LOGGER = logging.getLogger('server')
 
 
 def get_message(opened_socket, CONFIGS):
@@ -39,13 +43,13 @@ def load_settings(is_server=True):
     if not is_server:
         config_keys.append('DEFAULT_IP_ADDRESS')
     if not os.path.exists(path):
-        print('Файл конфигурации не найден')
+        CLIENT_LOGGER.critical('Файл конфигурации не найден')
         sys.exit(1)
     with open(path) as config_file:
         CONFIGS = json.load(config_file)
     loaded_configs_keys = list(CONFIGS.keys())
     for key in config_keys:
         if key not in loaded_configs_keys:
-            print(f'В файле конфигурации не хватает ключа: {key}')
+            SERVER_LOGGER.critical(f'В файле конфигурации не хватает ключа: {key}')
             sys.exit(1)
     return CONFIGS
