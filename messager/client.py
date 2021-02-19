@@ -3,14 +3,15 @@ import logging
 import time
 import socket
 import sys
+import messager.logs.client_log_config
 
 from messager.common.utils import get_message, send_message, load_settings
-from messager.logs import client_log_config
+from messager.common.decorators import Log
 
 CONFIGS = dict()
 CLIENT_LOGGER = logging.getLogger('client')
 
-
+@Log()
 def create_presence_message(account_name, CONFIGS):
     message = {
         CONFIGS.get('ACTION'): CONFIGS.get('PRESENCE'),
@@ -22,7 +23,7 @@ def create_presence_message(account_name, CONFIGS):
     CLIENT_LOGGER.info('Создание сообщения для отправки на сервер')
     return message
 
-
+@Log()
 def handle_response(message, CONFIGS):
     CLIENT_LOGGER.info('Обработка сообщения от сервера')
     if CONFIGS.get('RESPONSE') in message:

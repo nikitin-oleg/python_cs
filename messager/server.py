@@ -1,17 +1,17 @@
 import json
 import logging
-import os
 import socket
 import sys
+import messager.logs.server_log_config
 
 from messager.common.utils import get_message, send_message, load_settings
-from messager.logs import server_log_config
+from messager.common.decorators import log
 
 CONFIGS = dict()
 
 SERVER_LOGGER = logging.getLogger('server')
 
-
+@log
 def handle_message(message, CONFIGS):
     global SERVER_LOGGER
     SERVER_LOGGER.debug(f'Обработка сообщения от клиента: {message}')
